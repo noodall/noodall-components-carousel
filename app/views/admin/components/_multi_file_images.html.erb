@@ -1,0 +1,83 @@
+<fieldset class="multi-file-files images">
+  <legend><%= types %></legend>
+  <p><span class="add-multi-asset">Add An Image</span> (<span class="types"><%= types %></span>)</p>
+  <ol>
+    <% component.multi_images.each_with_index do |image,i| %>
+      <li class="multi-file file-selectable">
+        <% unless image.asset.nil? %>
+          <span class="file-detail"> <%= (image.asset.image? or image.asset.video?) ? image_tag( image.asset.url('70x70#', :jpg)  ) : asset_icon(image.asset) %></span>
+        <% end %>
+        <span class="delete" title="Remove this file">Delete</span>
+        <span class="edit" title="Edit this file">Edit</span>
+        <div class="file-form">
+          <p>
+            <span class="select-file">Select File</span>
+            <%= hidden_field_tag "node[#{slot_name}][multi_images][][asset_id]", image.asset.id, :id => "node_#{slot_name}_#{i}_asset_id", :class => "asset_id" %>
+          </p>
+          <p>
+            <%= label_tag "node_#{slot_name}_#{i}_title", "File Title" %><br />
+            <span class="input-wrap"><%= text_field_tag "node[#{slot_name}][multi_images][][title]", image.title, :id => "node_#{slot_name}_#{i}_title" %></span>
+          </p>
+
+          <% if image.respond_to?('link_text') %>
+            <p>
+              <%= label_tag "node_#{slot_name}_#{i}_link_text", "Link Text" %><br />
+              <span class="input-wrap"><%= text_field_tag "node[#{slot_name}][multi_images][][link_text]", image.link_text, :id => "node_#{slot_name}_#{i}_link_text" %></span>
+            </p>
+          <% end %>
+        
+          <p>
+            <%= label_tag "node_#{slot_name}_#{i}_url", "File Url" %><br />
+            <span class="input-wrap">
+              <%= text_field_tag "node[#{slot_name}][multi_images][][url]", image.url, :id => "node_#{slot_name}_#{i}_url" %><br/>
+              <span class="link-node">Content</span> |
+              <span class="link-asset">Asset</span>
+            </span>
+          </p>
+          <p>
+            <%= label_tag "node_#{slot_name}_#{i}_body", "File Description" %><br />
+            <span class="input-wrap"><%= text_area_tag "node[#{slot_name}][multi_images][][body]", image.body, :id => "node_#{slot_name}_#{i}_body", :rows => 3 %></span>
+          </p>
+
+          <p><span class="done">Done</span></p>
+        </div>
+      </li>
+    <% end %>
+    <li class="multi-file file-selectable">
+      <span class="delete" title="Remove this file">Delete</span>
+      <span class="edit" title="Edit this file">Edit</span>
+      <div class="file-form">
+        <p>
+          <span class="select-file">Select File</span>
+          <%= hidden_field_tag "node[#{slot_name}][multi_images][][asset_id]", '', :id => nil, :class => "asset_id", :disabled => true %>
+        </p>
+        <p>
+          <%= label_tag "node_#{slot_name}_title", "File Title" %><br />
+          <span class="input-wrap"><%= text_field_tag "node[#{slot_name}][multi_images][][title]", '', :id => nil, :disabled => true %></span>
+        </p>
+        
+        <% if component.class == Carousel %>
+          <p>
+            <%= label_tag "node_#{slot_name}_link_text", "Link Text" %><br />
+            <span class="input-wrap"><%= text_field_tag "node[#{slot_name}][multi_images][][link_text]", 'More', :id => nil, :disabled => true %></span>
+          </p>
+        <% end %>
+
+        <p>
+          <%= label_tag "node_#{slot_name}_url", "File Url" %><br />
+          <span class="input-wrap">
+            <%= text_field_tag "node[#{slot_name}][multi_images][][url]", '', :id => nil, :disabled => true %><br/>
+            <span class="link-node">Content</span> |
+            <span class="link-asset">Asset</span>
+          </span>
+        </p>
+        <p>
+          <%= label_tag "node_#{slot_name}_body", "File Description" %><br />
+          <span class="input-wrap"><%= text_area_tag "node[#{slot_name}][multi_images][][body]", '', :id => nil, :rows => 3, :disabled => true %></span>
+        </p>
+
+        <p><span class="done">Done</span></p>
+      </div>
+    </li>
+  </ol>
+</fieldset>

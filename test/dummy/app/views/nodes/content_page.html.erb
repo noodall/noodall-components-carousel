@@ -1,0 +1,7 @@
+<h1><%= @node.title %></h1>
+
+<%= @node.body.html_safe %>
+
+<%= component @node, 'carousel_slot_0' %>
+
+<%= debug @node %>

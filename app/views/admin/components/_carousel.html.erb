@@ -1,0 +1,15 @@
+<%= fields_for :node do |f| %>
+ <%= f.fields_for slot_name, component do |c| %>
+   <div class="multi-file-component">
+     <%= c.hidden_field :_type %>
+     <%= render :partial  => 'admin/components/multi_file_images',
+                :locals   => {
+                  :component  => component,
+                  :slot_name  => slot_name,
+                  :types      => "Images",
+                  :allow_url  => true
+                }
+      %>
+   </div>
+ <% end
+end %>

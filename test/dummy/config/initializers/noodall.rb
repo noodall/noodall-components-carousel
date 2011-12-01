@@ -1,0 +1,1 @@
+Noodall::Node.slot :carousel, Carousel

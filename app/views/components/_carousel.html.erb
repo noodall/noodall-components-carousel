@@ -1,0 +1,23 @@
+I am a carousel
+
+<div id="<%= slot_code %>" class="component carousel <%= additional_classes %>">
+  <p class="js-needed">In order to view the entirety of this content you will need to enable Javascript. You can do this in your browser settings.</p>
+  <div class="slides_container">
+    <% component.multi_images.not_empty.each do |image| %>
+      <div class="slide">
+        <%= image_tag( image.asset.url(page_class =~ /home/ ? '300x194#' : "660x367#", :jpg) )%>
+        <%  if !image.title.blank? %>
+          <div class="slide-copy">
+            <%  if !image.title.blank? %>
+              <p class="title"><%= image.title %></p>
+            <% end %>
+            <%  if !image.body.blank? %>
+              <p class="desc"><%= image.body %></p>
+            <% end %>
+            <%= link_to image.link_text, image.url unless image.url.blank?  %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
