@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :noodall-component-carousel do
+# task :noodall-components-carousel do
 #   # Task goes here
 # end

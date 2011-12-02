@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-
+source "http://gems.github.com"
 # Declare your gem's dependencies in noodall-component-carousel.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.

@@ -9,7 +9,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 Bundler.require
-require "noodall-component-carousel"
+require "noodall-components-carousel"
 
 module Dummy
   class Application < Rails::Application

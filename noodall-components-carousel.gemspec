@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "noodall-component-carousel/version"
+require "noodall-components-carousel/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "noodall-component-carousel"
-  s.version     = NoodallComponentCarousel::VERSION
+  s.name        = "noodall-components-carousel"
+  s.version     = NoodallComponentsCarousel::VERSION
   s.authors     = ["Steve England", "Jordan Elver"]
   s.email       = []
   s.homepage    = "https://github.com/noodall/noodall-components-carousel"
