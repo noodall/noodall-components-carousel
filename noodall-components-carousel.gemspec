@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "noodall-components-carousel"
   s.version     = NoodallComponentsCarousel::VERSION
   s.authors     = ["Steve England", "Jordan Elver"]
-  s.email       = []
+  s.email       = ["steve@wearebeef.co.uk"]
   s.homepage    = "https://github.com/noodall/noodall-components-carousel"
   s.summary     = "A carousel component for Noodall"
   s.description = "A carousel component for Noodall"
